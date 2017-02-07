@@ -17,7 +17,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # Compile EIG
-RUN git clone --depth 1 --branch "v6.1.3" https://github.com/DReichLab/EIG /tmp/EIG
+RUN git clone --depth 1 --branch master https://github.com/DReichLab/EIG /tmp/EIG
 WORKDIR /tmp/EIG/src
 ADD Makefile.patch Makefile.patch
 RUN patch < Makefile.patch
