@@ -13,13 +13,11 @@ RUN apt-get update \
          libgsl0-dev \
          libopenblas-base \
          libopenblas-dev \
-         liblapacke-dev
+         liblapacke-dev \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone --depth 1 --branch master https://github.com/DReichLab/EIG /tmp/EIG
+RUN git clone --depth 1 --branch "v6.1.3" https://github.com/DReichLab/EIG /tmp/EIG
 WORKDIR /tmp/EIG/src
 ADD Makefile.patch Makefile.patch
 RUN patch < Makefile.patch
 RUN make clobber OPENBLAS=/opt/openblas && make install OPENBLAS=/opt/openblas
-
-
