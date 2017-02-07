@@ -2,7 +2,7 @@
 +++ b/src/Makefile
 @@ -1,5 +1,5 @@
  CFLAGS += -I../include
--LDLIBS += -lgfortran -lrt -Wl,-Bstatic -lgsl -lopenblas -Wl,-Bdynamic -fopenmp
+-LDLIBS += -lgsl -lopenblas -lgfortran -lrt
 +LDLIBS += -lgfortran -lrt -Wl,-Bdynamic -fopenmp -llapacke -llapack -lgsl -lopenblas -lm
  
  ifeq ($(OPTIMIZE), 1)
